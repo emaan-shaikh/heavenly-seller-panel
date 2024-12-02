@@ -1,0 +1,73 @@
+/* Wrapper for the card stack */
+.card-stack-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+    background-color: white;
+  }
+  
+  /* Card stack container */
+  .card-stack {
+    position: relative;
+    width: 80%;
+    height: 450px;
+  }
+  
+  /* Individual card styles */
+  .card {
+    position: absolute;
+    width: 85%;
+    height: 450px;
+    border-radius: 8px;
+    transform-origin: top center;
+    list-style: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+  }
+  
+  /* Card Content Layout */
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  /* Text Section */
+  .card-text {
+    flex: 1;
+    text-align: left;
+    margin-right: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Image Section */
+  .card-image-container {
+    flex: 1;
+    text-align: right;
+    margin-right: 50px;
+  }
+  
+  .card-image {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  

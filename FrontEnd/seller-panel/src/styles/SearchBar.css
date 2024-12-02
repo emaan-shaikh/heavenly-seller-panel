@@ -1,0 +1,223 @@
+/* Search Bar Container */
+.search-bar {
+    position: absolute; /* Position relative to the banner */
+    bottom: 10px; /* Halfway below the banner */
+    left: -51%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row; /* Keep the button on top of the div boxes */
+    align-items: left;
+    background: white;
+    border-radius: 60px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    width: 100%; /* Made it narrower */
+    max-width: 1000px; /* Reduced max width */
+    height: 70px; /* Reduced height */
+    transform: translateY(20px); /* Start below position */
+    transition: all 0.7s ease-in-out; /* Smooth transition */
+  }/* Search Bar Container */
+  
+  /* Search Box Container */
+  .search-box-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; /* Add equal spacing between the search boxes */
+    padding-right: 70px; /* Space on the right for the search button */
+  }
+  
+  /* Search Box */
+  .search-box {
+    flex: 1; /* Equal size for each box */
+    text-align: left; 
+    padding: 10px;
+    font-size: 16px;
+    color: #555;
+    margin: 0 5px; /* Add spacing between boxes */
+    border-right: 1px solid #ccc; /* Divider between boxes */
+    font-weight: 500; /* Slightly bold text */
+  
+  }
+  
+  /* Remove the right border from the last box */
+  .search-box:last-child {
+    border-right: none;
+  }
+  
+  /* Search Button */
+  .search-button {
+    background-color: #750631;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 10px; /* Align button to the right */
+    top: 10%;
+  }
+  
+  /* Search Button Hover Effect */
+  .search-button:hover {
+    background-color: #a30744; /* Darker shade for hover */
+    transform: scale(1.1); /* Zoom effect */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Scroll Button Hover Effect */
+  .bed-controls-scroll-button:hover,
+  .bathroom-controls-scroll-button:hover {
+    background-color: #a30744; /* Darker shade for hover */
+    color: white;
+    border-color: #a30744;
+    transform: scale(1.1); /* Zoom effect */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Individual Search Box Classes */
+  .search-box .search-input {
+    width: 88%;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid #ccc; /* Default bottom border */
+    outline: none;
+    transition: border-bottom 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Add Placeholder Color */
+  .search-input::placeholder {
+    color: #aaa; /* Grey placeholder text */
+  }
+  
+  /* Add Input Text Color */
+  .search-input {
+    color: #333; /* Dark text when the user types */
+  }
+  
+  
+  .search-box input::placeholder {
+    color: #aaa;
+  }
+  
+  .search-heading input{
+    color:#555;
+  }
+  /* Dropdown Styles */
+  .location-dropdown {
+    position: absolute;
+    top: 100%; /* Position it below the input */
+    left: 4%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    width:300px;
+    overflow-y: auto;
+    transition: all 0.3s ease-out;
+    z-index: 30;
+    display: none; /* Initially hidden */
+  }
+  
+  .search-box .location-dropdown {
+    display: block;
+  }
+  
+  .location-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .location-dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .location-icon {
+    margin-right: 10px;
+  }
+  
+  /* Horizontal Divider */
+  hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .confirm-text {
+    text-align: center;
+    color: #750631; /* Text color */
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .confirm-text:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  
+  
+  /* Dropdown Scroll Effect */
+  @keyframes dropdown-slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10%); /* Start above the input field */
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Slide to its original position */
+      visibility: visible;
+    }
+  }
+  
+  @keyframes dropdown-slide-up {
+    from {
+      opacity: 1;
+      transform: translateY(0); /* Stay at the original position */
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%); /* Slide upwards */
+      visibility: hidden;
+    }
+  }
+  
+  /* Dropdown Styles */
+  .location-dropdown {
+    animation: dropdown-slide-down 0.3s ease-out forwards; /* Slide down animation on open */
+  }
+  
+  .location-dropdown.hide {
+    animation: dropdown-slide-up 0.3s ease-out forwards; /* Slide up animation on close */
+  }
+  
+  .location-dropdown.show {
+    display: block;
+    animation: dropdown-slide-down 0.3s ease-out forwards; /* Show dropdown */
+  }
+  
+
+  
+  .location-dropdown.show {
+    display: block;
+  }

@@ -1,0 +1,40 @@
+/* General App Styling */
+.App {
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+.logo-video {
+  position: absolute; /* Positioned relative to parent */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfectly center the video */
+  width: 200px; /* Adjust size */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 15; /* Keep it above other elements */
+  transition: all 2s ease-in-out; /* Smooth transition when moved */
+}
+
+.logo-video.to-top-left {
+  position: fixed; /* Fixed during transition */
+  top: 16px; /* Final top position */
+  left: 240px; /* Final left position */
+  transform: translate(0, 0); /* No centering adjustment */
+  width: 180px; /* Shrink for top-left position */
+  height: auto;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

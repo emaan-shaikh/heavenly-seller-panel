@@ -1,0 +1,64 @@
+/* Container for the text section */
+.dashboard-text {
+  display: flex;
+  justify-content: space-between; /* Align left and right sections */
+  align-items: center; /* Center vertically */
+  margin: 150px auto; /* Space below banner */
+  margin-bottom: 40px;
+  max-width: 1100px; /* Same width as the banner */
+  max-height: 900px;
+  padding-top: 20px;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Start below */
+  transition: all 1s ease-in-out;
+}
+
+.dashboard-text.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide up */
+}
+
+/* Left text (heading and subheading) */
+.text-left {
+  flex: 2; /* Take up equal space */
+  text-align: left; /* Align text to the left */
+}
+
+.text-left h2 {
+  font-size: 49px; /* Slightly larger heading */
+  font-weight: bold;
+  color: black;
+  line-height: 0.2; /* Reduce line spacing */
+  margin-bottom: 10px; /* Add spacing below the h2 */
+}
+
+.text-left .highlight {
+  font-size: 52px; /* Match heading font size */
+  font-weight: bold;
+  color: #ff5f3f; /* Highlighted text color */
+  font-family: "Georgia", serif; /* Serif font for emphasis */
+  line-height: 0.2; /* Tighten the spacing for the highlight text */
+}
+
+
+/* Right text (description) */
+.text-right {
+  flex: 1; /* Take up equal space */
+  text-align: left; /* Align text to the left for better readability */
+  color: #666; /* Subtle text color */
+  font-size: 19px; /* Slightly larger for readability */
+  line-height: 1.6; /* Comfortable line spacing */
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-text {
+    flex-direction: column; /* Stack text sections vertically */
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .text-right {
+    text-align: center; /* Center align on smaller screens */
+  }
+}

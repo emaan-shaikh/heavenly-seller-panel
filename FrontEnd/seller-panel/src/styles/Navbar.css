@@ -1,0 +1,107 @@
+/* Navbar Container */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: top 1.5s ease-in-out;
+}
+
+.navbar {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  height: 100%;
+}
+
+/* Divide navbar into three equal sections */
+.navbar > div {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+/* Left section (empty) */
+.navbar-left {
+  justify-content: flex-start;
+}
+
+/* Middle section (nav links) */
+.navbar-center {
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #750631;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Right section (favorites, language, profile) */
+.navbar-right {
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none; /* Hide middle section */
+  }
+
+  .navbar-right .favorites,
+  .navbar-right .language {
+    display: none; /* Hide favorites and language links */
+  }
+
+  .navbar-left {
+    flex: 1; /* Allow left section to take available space */
+  }
+
+  .navbar-right {
+    justify-content: flex-end; /* Keep profile pic on the right */
+  }
+}
