@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SellerDashboard from "./pages/SellerDashboard"; // Updated import for your SellerDashboard
+import SellerDashboard from "./pages/SellerDashboard"; 
 import Navbar from "./components/Navbar"; // Reuse existing Navbar
+import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
+import { UserProvider } from './contexts/UserContext'; 
+import AddProperty from "./pages/AddProperty";
+import Auth from './pages/Auth'
 import "./App.css";
 
 const App = () => {
@@ -19,6 +23,8 @@ const App = () => {
   };
 
   return (
+    <GoogleOAuthProvider clientId="342114927823-scqsgi1l7shteihubi30npk1hg2vsvj4.apps.googleusercontent.com">
+    <UserProvider>
     <Router>
       <div className="App">
         {/* Video Animation (Logo) */}
@@ -41,10 +47,15 @@ const App = () => {
         {showNavbar && (
           <Routes>
             <Route path="/" element={<SellerDashboard />} />
+            <Route path="/add-property" element={<AddProperty />} />
+            <Route path="/auth" element={<Auth />} />
+
           </Routes>
         )}
       </div>
     </Router>
+    </UserProvider>
+    </GoogleOAuthProvider> // Closing the GoogleOAuthProvider
   );
 };
 

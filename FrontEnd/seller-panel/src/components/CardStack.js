@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import move from "lodash-move";
 import "../styles/CardStack.css";
@@ -41,13 +41,41 @@ const SCALE_FACTOR = 0.06;
 
 const CardStack = () => {
   const [cards, setCards] = useState(CARD_DATA);
+  const [isVisible, setIsVisible] = useState(false); // Track visibility
+  const cardStackRef = useRef(null); // Ref for card stack wrapper
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true); // Mark visible when in viewport
+          }
+        });
+      },
+      { threshold: 0.3 } // Trigger when 30% of the card stack is visible
+    );
+
+    if (cardStackRef.current) {
+      observer.observe(cardStackRef.current);
+    }
+
+    return () => {
+      if (cardStackRef.current) {
+        observer.unobserve(cardStackRef.current);
+      }
+    };
+  }, []);
 
   const moveToEnd = (fromIndex) => {
     setCards((prevCards) => move(prevCards, fromIndex, prevCards.length - 1));
   };
 
   return (
-    <div className="card-stack-wrapper">
+    <div
+      ref={cardStackRef}
+      className={`card-stack-wrapper ${isVisible ? "visible" : ""}`}
+    >
       <ul className="card-stack">
         {cards.map((card, index) => {
           const isDraggable = index === 0; // Only the top card is draggable

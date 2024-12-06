@@ -3,10 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import DashboardText from "../components/DashboardText";
-import CardSection from "../components/CardStack";
+import CardStack from "../components/CardStack";
+import PromotionBanner from "../components/PromotionBanner";
+
 
 import "../styles/SellerDashboard.css";
-import CardStack from "../components/CardStack";
 
 const SellerDashboard = () => {
   return (
@@ -15,7 +16,7 @@ const SellerDashboard = () => {
       <Banner />
       <DashboardText />
       <CardStack />
-
+      <PromotionBanner />
       <Footer />
     </div>
   );
