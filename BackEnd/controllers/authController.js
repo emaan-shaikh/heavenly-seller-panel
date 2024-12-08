@@ -12,27 +12,48 @@ const signup = async (req, res) => {
   try {
     const { username, email, password, profileImage } = req.body;
 
+    // Validate required fields
+    if (!username || !email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
     // Check if the username already exists
-    const existingUser = await User.findOne({ username });
-    if (existingUser) {
+    const existingUsername = await User.findOne({ username });
+    if (existingUsername) {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
-    // Use the default image if no profile image is provided
-    const profileImagePath = profileImage || "/assets/Profile.png"; // Ensure '/assets/Profile.png' is publicly available
+    // Check if the email already exists
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
 
-    // Create new user object with the profile image path
+    // Validate email format
+    if (!validateEmail(email)) {
+      return res.status(400).json({ message: 'Invalid email format' });
+    }
+
+    // Validate password length
+    if (password.length < 8) {
+      return res.status(400).json({ message: 'Password must be at least 8 characters long' });
+    }
+
+    // Use the default image if no profile image is provided
+    const profileImagePath = profileImage || "/assets/Profile.png";
+
+    // Create new user object
     const newUser = new User({
       username,
       email,
       password,
-      profileImage: profileImagePath, // Save the image path or URL in the database
+      profileImage: profileImagePath,
     });
 
     // Save the new user
     await newUser.save();
 
-    // Send back the response with user data (excluding password) for confirmation
+    // Send back the response with user data (excluding password)
     const { password: _, ...userWithoutPassword } = newUser.toObject();
     return res.status(201).json({
       message: 'User created successfully',
@@ -45,10 +66,10 @@ const signup = async (req, res) => {
   }
 };
 
-
 const login = async (req, res) => {
   const { email, password } = req.body;
 
+  // Validate required fields
   if (!email || !validateEmail(email)) {
     return res.status(400).json({ message: 'Invalid email format' });
   }
@@ -70,7 +91,10 @@ const login = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.cookie('token', token, { httpOnly: true, secure: false });
-    res.status(200).json({ message: 'Login successful', token });
+
+    // Send back user data (excluding password) along with the token
+    const { password: _, ...userWithoutPassword } = user.toObject();
+    res.status(200).json({ message: 'Login successful', token, user: userWithoutPassword });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });

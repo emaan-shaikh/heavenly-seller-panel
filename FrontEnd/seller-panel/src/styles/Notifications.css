@@ -1,0 +1,60 @@
+.notifications-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    background-color: #fff6f4; /* Match your app's theme */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .notification-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .notification-card.read {
+    background-color: #f0f0f0;
+  }
+  
+  .notification-message {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .notification-date {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .mark-as-read-button,
+  .approve-request-button {
+    margin-top: 10px;
+    margin-right: 6px;
+    padding: 10px 15px;
+    font-size: 11px;
+    color: white;
+    background-color: #750631c9;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mark-as-read-button:hover,
+  .approve-request-button:hover {
+    background-color: #a20447;
+  }
+  

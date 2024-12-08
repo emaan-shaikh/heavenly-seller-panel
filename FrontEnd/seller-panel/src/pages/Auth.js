@@ -31,7 +31,7 @@ const Auth = () => {
   const { setUser } = useUser();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/"; // Redirect from where the user came from
+  const from = location.state?.from?.pathname || "/auth"; // Redirect from where the user came from
   const navigate = useNavigate();
 
 
@@ -107,6 +107,7 @@ const Auth = () => {
     );
 
     if (token) {
+      console.log(token);
       navigate(from, { replace: true }); // Navigate to the "from" page or default '/'
     }
   }, [navigate, from]); // `from` should be a dependency here
@@ -115,57 +116,67 @@ const Auth = () => {
 
    const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate the form fields before submitting
     if (!validateFields()) return;
-
+  
     setFormVisible(false);
     setLoading(true);
-    isSignUp ? console.log("yess"): console.log("no")
-    const url = isSignUp ? "/api/auth/signup" : "/api/auth/login";
+  
+    // Check if it is a sign-up or login request
+    const url = isSignUp ? "http://localhost:5000/api/auth/signup" : "http://localhost:5000/api/auth/login";
     const data = isSignUp
       ? { email, username, password }
       : { email, password };
-
+  
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
+  
       const result = await response.json();
-
+  
+      // If the response is successful, handle the login/signup
       if (response.status === 200 || response.status === 201) {
         document.cookie = `token=${result.token}; path=/`; 
- setUser({ email, username: isSignUp ? username : null }); 
- navigate("/profile"); // Navigate to the profile page
-
+        // setUser({ email, username: isSignUp ? username : result.user.username }); // Set user data
+        const userData = { email, username: isSignUp ? username : result.user.username };
+        setUser (userData); // Set user data in context
+        localStorage.setItem('user', JSON.stringify(userData)); // Store user data in local storage
+        navigate("/seller-dashboard"); // Navigate to the profile page
       } else {
+        // If there's an error, show it in an alert
         setError(result.message || "An unexpected error occurred.");
+        alert(result.message || "An unexpected error occurred.");
       }
     } catch (err) {
+      // If there's a server error, handle it here
       setError("Server error. Please try again later.");
+      alert("Server error. Please try again later.");
     } finally {
       setTimeout(() => {
-        setLoading(false);
+        setLoading(false); // Hide loading spinner after 3 seconds
       }, 3000);
     }
   };
-
+  
 
    // Handle Google Login Success
    const handleGoogleSuccess = async (response) => {
     const { credential } = response; // This is the Google JWT token
-
+  
     try {
-      const res = await axios.post("/api/auth/google", { token: credential });
+      const res = await axios.post("http://localhost:5000/api/auth/google", { token: credential });
       document.cookie = `token=${res.data.token}; path=/`; // Store token
-      navigate("/"); // Redirect to the home/dashboard page
+      setUser (res.data.user); // Update user context with the returned user data
+      navigate("/seller-dashboard"); // Redirect to the profile page
     } catch (err) {
       console.error("Error with Google login", err);
       setError("Google login failed. Please try again.");
     }
   };
-
 
   // Handle input change for password (to clear error when typing)
   const handlePasswordChange = (e) => {

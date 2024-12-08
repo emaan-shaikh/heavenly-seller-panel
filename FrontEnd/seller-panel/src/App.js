@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SellerDashboard from "./pages/SellerDashboard"; 
 import Navbar from "./components/Navbar"; // Reuse existing Navbar
 import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
 import { UserProvider } from './contexts/UserContext'; 
+
+import SellerDashboard from "./pages/SellerDashboard"; 
 import AddProperty from "./pages/AddProperty";
 import Auth from './pages/Auth'
+import PropertySuccess from "./pages/PropertySuccess";
+import PropertyDetail from "./pages/PropertyDetail";
+import Notifications from "./pages/Notifications";
+import NextSteps from "./pages/NextSteps";
+import PaymentPage from "./pages/PaymentPage";
+import ProfilePage from "./pages/ProfilePage";
+
+
 import "./App.css";
 
 const App = () => {
@@ -46,10 +55,15 @@ const App = () => {
         {/* Routes */}
         {showNavbar && (
           <Routes>
-            <Route path="/" element={<SellerDashboard />} />
+            <Route path="/seller-dashboard" element={<SellerDashboard />} />
             <Route path="/add-property" element={<AddProperty />} />
+            <Route path="/property-success" element={<PropertySuccess />} />
             <Route path="/auth" element={<Auth />} />
-
+            <Route path="/property-detail/:id" element={<PropertyDetail />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/next-steps" element={<NextSteps />} />
+            <Route path="/payment" element={<PaymentPage />} /> {/* Placeholder */}
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         )}
       </div>

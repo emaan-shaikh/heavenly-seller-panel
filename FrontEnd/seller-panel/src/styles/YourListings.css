@@ -1,0 +1,128 @@
+/* Container */
+.your-listings-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.your-listings-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.your-listings-heading {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.your-listings-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: black;
+}
+
+/* Card Layout */
+.listing-grid-container {
+  overflow: hidden;
+  flex: 1;
+}
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  width: 100%;
+}
+
+.listing-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px; /* Uniform card height */
+}
+
+.listing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.listing-img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.listing-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.listing-location {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.listing-price {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.listing-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: white;
+  border: 1px solid #750631;
+  color: #750631;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-button.active {
+  background-color: #750631;
+  color: white;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled):not(.active) {
+  background-color: #750631;
+  color: white;
+}
+
+.pagination-button:hover {
+  transform: scale(1.1);
+}

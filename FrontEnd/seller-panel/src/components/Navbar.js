@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaHeart, FaGlobe } from "react-icons/fa";
+import { FaComment, FaBell, FaGlobe } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
 
-  useEffect(() => {
-    // Fetch user data from backend API
-    axios.get("http://localhost:5000/api/users/profile")  // Replace with your backend URL
-      .then(response => {
-        setUser(response.data);  // Store user data in state
-      })
-      .catch(error => {
-        console.error("Error fetching user profile:", error);
-      });
-  }, []);
 
   const handleProfileClick = () => {
     // Handle the navigation to the profile page
@@ -37,19 +27,21 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right section (favorites, language, profile) */}
+        {/* Right section (Notifications, language, profile) */}
         <div className="navbar-right">
-          <a href="#" className="favorites nav-link">
-            <FaHeart className="icon" /> Favorite
+        <a href="#" className="chat nav-link">
+            <FaComment className="icon" /> Chat
           </a>
-          <a href="#" className="language nav-link">
-            <FaGlobe className="icon" /> EN
+
+          <a href="/notifications" className="notifications nav-link">
+            <FaBell className="icon" />
           </a>
+          
           <div className="profile-pic" onClick={handleProfileClick}>
             {user && user.profilePicture ? (
               <img src={user.profilePicture} alt="Profile" className="profile-image" />
             ) : (
-              <div className="profile-placeholder">User</div>
+              <img src="/assets/Profile.jpg" alt="User" className="profile-image" />
             )}
           </div>
         </div>

@@ -67,7 +67,7 @@
   width: 100%;
 }
 
-/* Right section (favorites, language, profile) */
+/* Right section (notifications, language, profile) */
 .navbar-right {
   justify-content: flex-end;
   gap: 20px;
@@ -82,6 +82,13 @@
   transition: transform 0.3s ease;
 }
 
+.profile-image {
+  width: 40px; /* Adjust size */
+  height: 40px; /* Adjust size */
+  border-radius: 50%;  /* Make it circular */
+  object-fit: cover;   /* Ensure the image covers the area */
+}
+
 .profile-pic:hover {
   transform: scale(1.1);
 }
@@ -92,9 +99,9 @@
     display: none; /* Hide middle section */
   }
 
-  .navbar-right .favorites,
+  .navbar-right .notifications,
   .navbar-right .language {
-    display: none; /* Hide favorites and language links */
+    display: none; /* Hide notifications and language links */
   }
 
   .navbar-left {

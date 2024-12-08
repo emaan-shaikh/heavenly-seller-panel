@@ -1,0 +1,126 @@
+/* General Page Styles */
+.payment-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fdf6f6; /* Light theme background */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  /* Progress Tracker Styles */
+  .progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .progress-step.active {
+    background-color: #750631; /* Primary color */
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 5px;
+    background-color: #ddd;
+    margin: 0 5px;
+  }
+  
+  .progress-bar.active {
+    background-color: #750631;
+  }
+  
+  /* Form and Input Styles */
+  .payment-step h2 {
+    color: #750631; /* Primary color */
+    margin-bottom: 20px;
+  }
+  
+  .payment-step form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .payment-step label {
+    text-align: left;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  .payment-step input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .payment-step ul {
+    text-align: left;
+    margin: 20px auto;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .payment-step ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  /* Buttons */
+  .payment-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .next-button,
+  .back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .next-button {
+    background-color: #750631; /* Primary color */
+    color: white;
+  }
+  
+  .next-button:hover {
+    background-color: #5e0525; /* Darker primary color */
+  }
+  
+  .back-button {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .back-button:hover {
+    background-color: #bbb;
+  }
+  
+  /* Loading Spinner */
+  .loading-spinner {
+    font-size: 18px;
+    color: #750631;
+  }
+  

@@ -1,31 +1,40 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
-import axios from "axios";
+// UserContext.js
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 
-// Create a Context for the User
 const UserContext = createContext();
 
-// Custom hook to use the UserContext
-export const useUser = () => {
+export const useUser  = () => {
   return useContext(UserContext);
 };
 
-// UserContext provider component
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser ] = useState(() => {
+    const storedUser  = localStorage.getItem('user');
+    return storedUser  ? JSON.parse(storedUser ) : null;
+  });
 
   useEffect(() => {
-    // Fetch user data from the backend API when the app loads
-    axios.get("http://localhost:3000/api/users/profile", { withCredentials: true })
-      .then(response => {
-        setUser(response.data); // Update user state if data is available
-      })
-      .catch(error => {
-        console.error("Error fetching user profile:", error);
-      });
-  }, []);
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/users/profile', { withCredentials: true });
+        setUser (response.data);
+        localStorage.setItem('user', JSON.stringify(response.data));
+      } catch (error) {
+        console.error('Error fetching user profile:', error.response ? error.response.data : error.message);
+        setUser (null);
+        localStorage.removeItem('user');
+      }
+    };
+
+    // Only fetch user profile if user is not already set
+    if (!user) {
+      fetchUserProfile();
+    }
+  }, [user]); // Dependency on user state
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser  }}>
       {children}
     </UserContext.Provider>
   );

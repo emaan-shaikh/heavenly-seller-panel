@@ -1,0 +1,57 @@
+.next-steps-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #fff6f4;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .next-steps-container h1 {
+    font-size: 36px;
+    color: #750631;
+    margin-bottom: 20px;
+  }
+  
+  .next-steps-details {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .next-steps-details h2 {
+    font-size: 22px;
+    color: #750631;
+    margin-bottom: 10px;
+  }
+  
+  .next-steps-details ol {
+    padding-left: 20px;
+    color: #333;
+  }
+  
+  .next-steps-details li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .proceed-to-payment-button {
+    margin-top: 30px;
+    background-color: #750631;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .proceed-to-payment-button:hover {
+    background-color: #570426;
+    transform: translateY(-3px);
+  }
+  

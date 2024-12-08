@@ -1,7 +1,28 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+// Notification schema for embedding in UserSchema
+const NotificationSchema = new mongoose.Schema({
+  message: {
+    type: String,
+    required: true,
+  },
+  type: { // Notification type
+    type: String,
+    enum: ['info', 'sale', 'approved'], // Add more types as needed
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  read: {
+    type: Boolean,
+    default: false,
+  },
+});
 
+// User schema
 const UserSchema = new mongoose.Schema({
   imageUrls: {
     type: String,
@@ -21,8 +42,9 @@ const UserSchema = new mongoose.Schema({
   },
   favorites: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Property',  // Reference to the Property model
+    ref: 'Property', // Reference to the Property model
   }],
+  notifications: [NotificationSchema], // Embed notifications array
 });
 
 // Pre-save hook to hash the password before saving to the DB

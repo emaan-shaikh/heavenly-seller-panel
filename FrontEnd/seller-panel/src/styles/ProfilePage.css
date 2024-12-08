@@ -1,0 +1,121 @@
+/* ProfilePage.css */
+:root {
+    --primary-color: #750631;
+    --secondary-color: #fd5f3f;
+    --text-color: #333;
+    --background-color: #f3f4f6;
+    --card-background: #ffffff;
+  }
+  
+  .profile-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  .profile-picture-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-color);
+  }
+  
+  .profile-details-section {
+    flex: 2;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-details-section p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-edit-form label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-edit-form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.3rem;
+  }
+  
+  button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-profile-button,
+  .save-changes-button {
+    background-color: var(--primary-color);
+  }
+  
+  .edit-profile-button:hover,
+  .save-changes-button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .cancel-edit-button {
+    background-color: #ccc;
+    margin-left: 1rem;
+  }
+  
+  .cancel-edit-button:hover {
+    background-color: #bbb;
+  }
+  
+  .delete-profile-button {
+    background-color: #ff4d4f;
+  }
+  
+  .delete-profile-button:hover {
+    background-color: #d43f3f;
+  }
+  
+  .error-message {
+    color: #ff4d4f;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  

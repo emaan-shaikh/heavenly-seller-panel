@@ -1,0 +1,38 @@
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #fff6f4;
+  }
+  
+  .success-container h1 {
+    font-size: 36px;
+    color: #750631; /* Your main theme color */
+    margin-bottom: 20px;
+  }
+  
+  .success-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-button {
+    background-color: #750631;
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .dashboard-button:hover {
+    background-color: #580526;
+    transform: translateY(-3px);
+  }
+  

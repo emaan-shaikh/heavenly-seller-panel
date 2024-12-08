@@ -1,13 +1,17 @@
 const express = require('express');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db');
+
 const app = express();
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
+const propertyRoutes = require("./routes/propertyRoutes");
+const notificationRoutes = require('./routes/notificationRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 
 
@@ -24,13 +28,24 @@ connectDB();
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use("/api/properties", propertyRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use("/api/users", userRoutes);
+
+app.use((req, res, next) => {
+  console.log(`Incoming Request: ${req.method} ${req.path}`);
+  next();
+});
+
+
 
 
 
 app.get("/", (req, res) => {
+
   res.send("API is running");
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
