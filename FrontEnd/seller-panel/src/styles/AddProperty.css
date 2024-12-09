@@ -65,14 +65,16 @@ legend {
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 40px; /* Add spacing between rows and columns */
+  gap: 20px 60px; /* Add spacing between rows and columns */
+  padding-right: 20px;
 }
 
 .address-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px; /* Consistent spacing for address fields */
+  gap: 50px; /* Consistent spacing for address fields */
   margin-top: 30px;
+  padding-right: 20px;
 }
 
 /* Amenities Section */
@@ -116,6 +118,7 @@ textarea,
 select {
   width: 100%;
   padding: 12px;
+  padding-right: 0;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;

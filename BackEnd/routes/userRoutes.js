@@ -4,15 +4,16 @@ const protect = require('../middleware/authMiddleware');
 const {
   // addToFavorites,
   // getFavorites,
-  // removeFromFavorites,
+  updateProfile,
   getProfile,
 } = require('../controllers/userController');
 
 const router = express.Router();
 
+// Fetch user profile
 router.get('/profile', protect, getProfile);
-// router.get("/favorites", protect, getFavorites);
-// router.post("/remove-from-favorites", protect, removeFromFavorites);
-// router.post('/add-to-favorites', protect, addToFavorites);
+
+// Update user profile
+router.put('/profile', protect, updateProfile);
 
 module.exports = router;

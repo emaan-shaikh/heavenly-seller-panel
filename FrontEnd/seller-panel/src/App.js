@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar"; // Reuse existing Navbar
 import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
 import { UserProvider } from './contexts/UserContext'; 
@@ -64,7 +64,9 @@ const App = () => {
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/payment" element={<PaymentPage />} /> {/* Placeholder */}
             <Route path="/profile" element={<ProfilePage />} />
-          </Routes>
+
+            <Route path="/" element={<Navigate to="/sauth" />} />
+            </Routes>
         )}
       </div>
     </Router>

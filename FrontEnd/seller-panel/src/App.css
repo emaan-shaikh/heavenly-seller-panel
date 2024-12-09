@@ -14,7 +14,7 @@
   width: 200px; /* Adjust size */
   height: auto; /* Maintain aspect ratio */
   z-index: 15; /* Keep it above other elements */
-  transition: all 2s ease-in-out; /* Smooth transition when moved */
+  transition: all 1s ease-in-out; /* Smooth transition when moved */
 }
 
 .logo-video.to-top-left {
@@ -33,7 +33,13 @@
   .app-container {
     flex-direction: column;
   }
-
+  .logo-video.to-top-left {
+    top: 18px; /* Final top position */
+    left: 15px; /* Final left position */
+    transform: translate(0, 0); /* No centering adjustment */
+    width: 120px; /* Shrink for top-left position */
+    height: auto;
+  }
   .content {
     margin-left: 0;
   }

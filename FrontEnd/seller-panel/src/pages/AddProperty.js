@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../styles/AddProperty.css";
+import { useUser } from "../contexts/UserContext"; // Import UserContext
 import axios from "axios"; // Install axios if not already installed: npm install axios
 
 
 const AddProperty = () => {
+  const { user } = useUser();
   const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
     propertyTitle: "",
@@ -37,6 +39,7 @@ const AddProperty = () => {
       parking: false,
     },
     images: [],
+    email: user?.email || "",
   });
 
   const handleChange = (e) => {
@@ -68,6 +71,10 @@ const AddProperty = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
+  if (!formData.email) {
+    alert("User email is required.");
+    return;
+  }
   // Prepare form data for submission
   const submissionData = new FormData();
   Object.entries(formData).forEach(([key, value]) => {

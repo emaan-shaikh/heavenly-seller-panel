@@ -6,32 +6,33 @@ import "../styles/CardStack.css";
 const CARD_DATA = [
   {
     color: "#FF6A43",
-    title: "Card 1",
-    description: "Description for card 1",
+    title: "User Registration",
+    description: "Once registered, our platform thoroughly assesses each user's profile. This evaluation includes verification",
+    
     image: "assets/card1.png", // Replace with actual image URL
   },
   {
     color: "#8D6DD2",
-    title: "Card 2",
-    description: "Description for card 2",
+    title: "Profile Assessment",
+    description: "Once registered, our platform thoroughly assesses each user's profile. This evaluation includes verification",
     image: "assets/card2.png",
   },
   {
     color: "#052085",
-    title: "Card 3",
-    description: "Description for card 3",
+    title: "Property Listing",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum, nulla eu tincidunt egestas, turpis dolor finibus nisi, eu tristique sem purus eu felis. Etiam facilisis, mi at facilisis vestibulum, purus ante lacinia est",
     image: "assets/card3.png",
   },
   {
     color: "#144125",
-    title: "Card 4",
-    description: "Description for card 4",
+    title: "Marketing and Promotion",
+    description: "Nulla ultricies mi at nulla tempus porta. Aenean in aliquet purus, sed scelerisque elit. Donec sed consequat nisi. Integer feugiat blandit aliquam. Morbi velit orci, finibus eget sapien id, sodales luctus ante. ",
     image: "assets/card4.png",
   },
   {
     color: "#00adbc",
-    title: "Card 5",
-    description: "Description for card 5",
+    title: "Negotiation and Sales",
+    description: "Donec dictum dolor est, sed ultricies felis cursus feugiat. Aliquam consequat aliquet ex sed hendrerit. Donec ut turpis sit amet libero vestibulum dictum.",
     image: "assets/card5.png",
   },
 ];

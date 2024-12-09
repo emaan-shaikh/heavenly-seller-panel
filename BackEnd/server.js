@@ -7,6 +7,17 @@ const connectDB = require('./config/db');
 
 const app = express();
 
+
+// Middlewares
+app.use(express.json());
+app.use(cookieParser());
+const corsOptions = {
+  origin: "http://localhost:3000", // Replace with your frontend URL
+  credentials: true, // Allow credentials (cookies, etc.)
+};
+
+app.use(cors(corsOptions));
+
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const propertyRoutes = require("./routes/propertyRoutes");
@@ -15,10 +26,6 @@ const userRoutes = require('./routes/userRoutes');
 
 
 
-// Middlewares
-app.use(express.json());
-app.use(cookieParser());
-app.use(cors());
 
 // Connect to MongoDB
 connectDB();

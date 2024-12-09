@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="nav-links">
             <a href="#" className="nav-link">Buy</a>
             <a href="#" className="nav-link">Rent</a>
-            <a href="#" className="nav-link">Sell</a>
+            <a href="/seller-dashboard" className="nav-link">Sell</a>
           </div>
         </div>
 

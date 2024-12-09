@@ -59,6 +59,12 @@
   }
 
   .text-right {
+    font-size: 16px;
     text-align: center; /* Center align on smaller screens */
   }
+
+  .text-left h2 {
+    font-size: 36px; /* Adjust heading size */
+  }
+  
 }

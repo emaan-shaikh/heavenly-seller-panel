@@ -221,3 +221,13 @@
   .location-dropdown.show {
     display: block;
   }
+
+  @media (max-width: 768px) {
+    .search-bar {
+      flex-direction: column; /* Stack search boxes */
+      align-items: center; /* Center align */
+    }
+    .search-box-container {
+      padding-right: 0; /* Remove right padding */
+    }
+  }

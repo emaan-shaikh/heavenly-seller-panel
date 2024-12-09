@@ -125,5 +125,15 @@
     .promotion-image img {
       max-width: 100%;
     }
+
+    .promotion-title {
+      font-size: 30px; /* Reduce font size for smaller screens */
+    }
+    .promotion-description {
+      font-size: 16px; /* Adjust description font size */
+    }
+    .promotion-button {
+      padding: 10px 15px; /* Adjust button padding */
+    }
   }
   

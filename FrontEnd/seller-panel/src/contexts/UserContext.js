@@ -31,7 +31,7 @@ export const UserProvider = ({ children }) => {
     if (!user) {
       fetchUserProfile();
     }
-  }, [user]); // Dependency on user state
+  }, []); // Dependency on user state
 
   return (
     <UserContext.Provider value={{ user, setUser  }}>
